@@ -1,0 +1,93 @@
+---
+const steps = [
+  {
+    number: '01',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+    </svg>`,
+    title: 'Elige Tu Plan',
+    description: 'Selecciona entre Pétalo, Floración o Jardín según la frecuencia con la que quieras repartir alegría.',
+  },
+  {
+    number: '02',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+    </svg>`,
+    title: 'Programa tu Entrega',
+    description: 'Escoge las fechas de entrega, agrega mensajes personales y elige tus estilos de flores favoritos.',
+  },
+  {
+    number: '03',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+    </svg>`,
+    title: 'Nosotros nos Encargamos',
+    description: 'Nuestras floristas elaboran a mano tu arreglo con flores frescas y lo entregamos en tu puerta.',
+  },
+  {
+    number: '04',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+    </svg>`,
+    title: 'Sonrisas Garantizadas',
+    description: 'Disfruta de flores frescas entregadas regularmente. Si no estás 100% feliz, te devolvemos tu dinero.',
+  },
+];
+---
+
+<section id="how-it-works" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-primary-100/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent-100/30 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <span class="text-primary-600 font-semibold text-sm uppercase tracking-wider">Proceso Simple</span>
+      <h2 class="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+        ¿Cómo Funciona?
+      </h2>
+      <p class="mt-4 text-lg text-gray-600">
+        Suscribirte y recibir flores frescas es muy fácil. En solo 4 pasos estarás disfrutando de hermosos arreglos florales.
+      </p>
+    </div>
+
+    <!-- Steps Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+      {steps.map((step, index) => (
+        <div class="group relative">
+          <!-- Connector line (hidden on mobile) -->
+          {index < 3 && (
+            <div class="hidden lg:block absolute top-16 left-full w-full h-0.5">
+              <div class="w-full h-full bg-gradient-to-r from-primary-300 to-primary-100"></div>
+            </div>
+          )}
+
+          <div class="relative bg-cream rounded-3xl p-8 hover:bg-white hover:shadow-xl hover:shadow-primary-100/30 transition-all duration-300 hover:-translate-y-2 border border-transparent hover:border-primary-100">
+            <!-- Step number -->
+            <div class="absolute -top-4 -right-4 w-12 h-12 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
+              {step.number}
+            </div>
+
+            <!-- Icon -->
+            <div class="w-16 h-16 bg-primary-100 group-hover:bg-primary-500 text-primary-600 group-hover:text-white rounded-2xl flex items-center justify-center transition-colors duration-300 mb-6" set:html={step.icon}></div>
+
+            <!-- Content -->
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">{step.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center mt-12 lg:mt-16">
+      <a href="#plans" class="inline-flex items-center justify-center px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-full transition-all hover:shadow-xl hover:shadow-primary-500/30 hover:-translate-y-0.5 text-lg">
+        Ver Planes Disponibles
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

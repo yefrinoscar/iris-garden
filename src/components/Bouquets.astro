@@ -1,0 +1,120 @@
+---
+const bouquets = [
+  {
+    name: 'Romance Sonrojado',
+    description: 'Un impresionante arreglo de rosas rosadas, peonías y eucalipto que habla el lenguaje del amor.',
+    price: '$59',
+    originalPrice: '$75',
+    emoji: '🌹',
+    gradient: 'from-pink-200 to-rose-200',
+    badge: 'Más Vendido',
+  },
+  {
+    name: 'Paraíso del Atardecer',
+    description: 'Tonos cálidos de lirios naranjas, girasoles amarillos y dahlias rojas capturan la magia de la hora dorada.',
+    price: '$69',
+    originalPrice: '$89',
+    emoji: '🌻',
+    gradient: 'from-amber-200 to-orange-200',
+    badge: 'Popular',
+  },
+  {
+    name: 'Sueños de Lavanda',
+    description: 'Elegante iris morado, lavanda y limonio blanco crean una composición etérea y de ensueño.',
+    price: '$54',
+    originalPrice: '$68',
+    emoji: '💜',
+    gradient: 'from-purple-200 to-lavender',
+    badge: null,
+  },
+  {
+    name: 'Elegancia Pura',
+    description: 'Clásicas callas blancas y flores delicadas en un diseño sofisticado y atemporal.',
+    price: '$79',
+    originalPrice: '$99',
+    emoji: '🤍',
+    gradient: 'from-gray-100 to-slate-200',
+    badge: 'Premium',
+  },
+  {
+    name: 'Felicidad del Jardín',
+    description: 'Una alegre mezcla de flores silvestres de temporada, margaritas y follaje directo del campo.',
+    price: '$49',
+    originalPrice: '$62',
+    emoji: '🌼',
+    gradient: 'from-green-200 to-emerald-200',
+    badge: 'Valor',
+  },
+  {
+    name: 'Escape Tropical',
+    description: 'Orquídeas exóticas, aves del paraíso y hojas de monstera te transportan al paraíso.',
+    price: '$89',
+    originalPrice: '$110',
+    emoji: '🌺',
+    gradient: 'from-red-200 to-pink-200',
+    badge: 'Lujo',
+  },
+];
+---
+
+<section id="bouquets" class="py-20 lg:py-32 bg-cream relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-primary-600 font-semibold text-sm uppercase tracking-wider">Nuestra Colección</span>
+      <h2 class="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+        Ramos Artesanales
+      </h2>
+      <p class="mt-4 text-lg text-gray-600">
+        Cada arreglo es diseñado de forma única por nuestras floristas expertas usando las flores de temporada más frescas.
+      </p>
+    </div>
+
+    <!-- Bouquets Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {bouquets.map((bouquet) => (
+        <div class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <!-- Image Placeholder -->
+          <div class={`relative aspect-square bg-gradient-to-br ${bouquet.gradient} flex items-center justify-center`}>
+            <span class="text-8xl group-hover:scale-110 transition-transform duration-300">{bouquet.emoji}</span>
+            {bouquet.badge && (
+              <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-800">
+                {bouquet.badge}
+              </span>
+            )}
+            <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-primary-500 hover:bg-white transition-all opacity-0 group-hover:opacity-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Content -->
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-xl font-semibold text-gray-900">{bouquet.name}</h3>
+              <div class="flex items-center gap-2">
+                <span class="text-gray-400 line-through text-sm">{bouquet.originalPrice}</span>
+                <span class="text-primary-600 font-bold text-lg">{bouquet.price}</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">{bouquet.description}</p>
+            <button class="w-full py-3 bg-primary-50 hover:bg-primary-100 text-primary-600 font-medium rounded-xl transition-colors">
+              Agregar al Carrito
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- View All Button -->
+    <div class="text-center mt-12">
+      <a href="#plans" class="inline-flex items-center px-8 py-4 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-full border-2 border-gray-200 hover:border-primary-300 transition-all hover:shadow-lg">
+        Ver Colección Completa
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

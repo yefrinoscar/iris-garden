@@ -1,0 +1,334 @@
+---
+// No frontmatter needed - all data in client script
+---
+
+<section id="plans" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary-100/40 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-100/40 rounded-full blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-primary-600 font-semibold text-sm uppercase tracking-wider">Planes de Suscripción</span>
+      <h2 class="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+        Envía Flores Regularmente y Ahorra
+      </h2>
+      <p class="mt-4 text-lg text-gray-600">
+        Suscríbete y nunca te quedes sin flores hermosas. Planes flexibles que se adaptan a tu estilo y presupuesto.
+      </p>
+
+      <!-- Billing Toggle -->
+      <div class="mt-8 inline-flex items-center gap-3 bg-cream rounded-full p-2 shadow-sm border border-gray-200">
+        <span id="label-monthly" class="text-sm font-semibold text-gray-900 transition-colors">Mensual</span>
+        <button
+          id="billing-toggle"
+          type="button"
+          role="switch"
+          aria-checked="false"
+          class="relative w-14 h-7 bg-gray-300 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+        >
+          <span
+            id="toggle-circle"
+            class="absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-md transition-transform"
+          ></span>
+        </button>
+        <span id="label-annual" class="text-sm font-medium text-gray-500 transition-colors">
+          Anual
+          <span class="ml-1.5 text-xs font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded-full">Ahorra 20%</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Plans Grid -->
+    <div id="plans-grid" class="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
+      <!-- Plans rendered client-side -->
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="mt-16 flex flex-wrap justify-center items-stretch gap-4 lg:gap-6">
+      <div class="flex flex-col items-center gap-3 bg-gradient-to-br from-green-50 to-green-100/50 rounded-2xl px-6 py-5 border border-green-200 flex-1 min-w-[180px] max-w-[220px]">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/30">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <span class="text-sm font-bold text-gray-900">Pago 100% Seguro</span>
+        <span class="text-xs text-gray-600 text-center">Transacciones encriptadas y protegidas</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl px-6 py-5 border border-blue-200 flex-1 min-w-[180px] max-w-[220px]">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+        </div>
+        <span class="text-sm font-bold text-gray-900">Sin Compromiso</span>
+        <span class="text-xs text-gray-600 text-center">Cancela, pausa o cambia cuando quieras</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-2xl px-6 py-5 border border-primary-200 flex-1 min-w-[180px] max-w-[220px]">
+        <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/30">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+          </svg>
+        </div>
+        <span class="text-sm font-bold text-gray-900">Garantía Total</span>
+        <span class="text-xs text-gray-600 text-center">7 días frescura o te devolvemos todo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:raw>
+  const plansData = {
+    monthly: [
+      {
+        name: 'Pétalo',
+        description: 'Ideal para enviar sonrisas ocasionales a alguien especial',
+        price: 89,
+        period: '/mes',
+        badge: 'Económico',
+        badgeColor: 'bg-accent-100 text-accent-700',
+        savings: null,
+        perkIcon: 'truck',
+        perkText: 'Envío gratis incluido',
+        features: [
+          { text: '1 ramo por mes', highlight: false },
+          { text: '15+ tallos frescos', highlight: false },
+          { text: 'Envío gratis a todo Lima', highlight: true, icon: 'truck' },
+          { text: 'Tarjeta de regalo', highlight: false },
+          { text: 'Selección de temporada', highlight: false },
+        ],
+        cta: 'Suscribirme a Pétalo',
+        popular: false,
+      },
+      {
+        name: 'Floración',
+        description: 'Mantén el romance floreciendo con entregas frecuentes',
+        price: 149,
+        period: '/mes',
+        badge: '★ Más Popular',
+        badgeColor: 'bg-gradient-to-r from-primary-500 to-primary-600 text-white',
+        savings: null,
+        perkIcon: 'gift',
+        perkText: 'Florero incluido sin costo',
+        features: [
+          { text: '2 ramos por mes', highlight: true },
+          { text: '20+ tallos premium', highlight: true },
+          { text: 'Envío gratis incluido', highlight: true, icon: 'truck' },
+          { text: 'Florero incluido', highlight: true, icon: 'gift' },
+          { text: 'Elige tus arreglos', highlight: true },
+          { text: '10% descuento tienda', highlight: false },
+        ],
+        cta: 'Suscribirme a Floración',
+        popular: true,
+      },
+      {
+        name: 'Jardín',
+        description: 'La experiencia floral definitiva y más exclusiva',
+        price: 249,
+        period: '/mes',
+        badge: 'Premium',
+        badgeColor: 'bg-gradient-to-r from-amber-500 to-amber-600 text-white',
+        savings: null,
+        perkIcon: 'star',
+        perkText: 'Florero de diseñador + VIP',
+        features: [
+          { text: '4 ramos por mes', highlight: true },
+          { text: '25+ tallos de lujo', highlight: true },
+          { text: 'Envío gratis incluido', highlight: true, icon: 'truck' },
+          { text: 'Florero de diseñador mensual', highlight: true, icon: 'star' },
+          { text: 'Arreglos personalizados', highlight: true },
+          { text: '20% descuento tienda', highlight: true },
+          { text: 'Acceso VIP a eventos', highlight: false },
+        ],
+        cta: 'Suscribirme a Jardín',
+        popular: false,
+      },
+    ],
+    annual: [
+      {
+        name: 'Pétalo',
+        description: 'Ideal para enviar sonrisas ocasionales a alguien especial',
+        price: 71,
+        period: '/mes',
+        badge: 'Ahorra S/ 216/año',
+        badgeColor: 'bg-green-100 text-green-700',
+        savings: 216,
+        perkIcon: 'truck',
+        perkText: 'Envío gratis incluido',
+        features: [
+          { text: '1 ramo por mes', highlight: false },
+          { text: '15+ tallos frescos', highlight: false },
+          { text: 'Envío gratis a todo Lima', highlight: true, icon: 'truck' },
+          { text: 'Tarjeta de regalo', highlight: false },
+          { text: 'Selección de temporada', highlight: false },
+        ],
+        cta: 'Suscribirme a Pétalo',
+        popular: false,
+      },
+      {
+        name: 'Floración',
+        description: 'Mantén el romance floreciendo con entregas frecuentes',
+        price: 119,
+        period: '/mes',
+        badge: '★ Más Popular',
+        badgeColor: 'bg-gradient-to-r from-primary-500 to-primary-600 text-white',
+        savings: 360,
+        perkIcon: 'gift',
+        perkText: 'Florero incluido sin costo',
+        features: [
+          { text: '2 ramos por mes', highlight: true },
+          { text: '20+ tallos premium', highlight: true },
+          { text: 'Envío gratis incluido', highlight: true, icon: 'truck' },
+          { text: 'Florero incluido', highlight: true, icon: 'gift' },
+          { text: 'Elige tus arreglos', highlight: true },
+          { text: '10% descuento tienda', highlight: false },
+        ],
+        cta: 'Suscribirme a Floración',
+        popular: true,
+      },
+      {
+        name: 'Jardín',
+        description: 'La experiencia floral definitiva y más exclusiva',
+        price: 199,
+        period: '/mes',
+        badge: 'Ahorra S/ 600/año',
+        badgeColor: 'bg-gradient-to-r from-amber-500 to-amber-600 text-white',
+        savings: 600,
+        perkIcon: 'star',
+        perkText: 'Florero de diseñador + VIP',
+        features: [
+          { text: '4 ramos por mes', highlight: true },
+          { text: '25+ tallos de lujo', highlight: true },
+          { text: 'Envío gratis incluido', highlight: true, icon: 'truck' },
+          { text: 'Florero de diseñador mensual', highlight: true, icon: 'star' },
+          { text: 'Arreglos personalizados', highlight: true },
+          { text: '20% descuento tienda', highlight: true },
+          { text: 'Acceso VIP a eventos', highlight: false },
+        ],
+        cta: 'Suscribirme a Jardín',
+        popular: false,
+      },
+    ],
+  };
+
+  const whatsappNumber = '51980617211';
+
+  let isAnnual = false;
+
+  function formatPrice(price) {
+    return `S/ ${price}`;
+  }
+
+  function getPerkIcon(icon) {
+    const icons = {
+      truck: `<svg class="w-4 h-4 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a1 1 0 102 0m-2 0a1 1 0 112 0m-2 0a1 1 0 102 0m6-1a1 1 0 102 0m-2 0a1 1 0 112 0m-2 0a1 1 0 102 0"/></svg>`,
+      gift: `<svg class="w-4 h-4 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>`,
+      star: `<svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+    };
+    return icons[icon] || '';
+  }
+
+  function getFeatureIcon(icon) {
+    const icons = {
+      truck: `<svg class="w-5 h-5 text-accent-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>`,
+      gift: `<svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>`,
+      star: `<svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+    };
+    return icons[icon] || `<svg class="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>`;
+  }
+
+  function renderPlans() {
+    const plans = plansData[isAnnual ? 'annual' : 'monthly'];
+    const grid = document.getElementById('plans-grid');
+
+    grid.innerHTML = plans.map((plan) => `
+      <div class="relative bg-cream rounded-3xl p-8 lg:p-10 ${plan.popular ? 'ring-2 ring-primary-500 shadow-xl shadow-primary-100 scale-105 z-10' : 'border border-gray-200 hover:border-primary-200 hover:shadow-lg'} transition-all duration-300">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold shadow-lg ${plan.badgeColor}">
+            ${plan.badge}
+          </span>
+        </div>
+
+        <div class="text-center mb-6">
+          <h3 class="font-display text-2xl font-bold text-gray-900">${plan.name}</h3>
+          <p class="mt-2 text-gray-600 text-sm">${plan.description}</p>
+          
+          <div class="mt-6">
+            <div class="flex items-baseline justify-center gap-1">
+              <span class="font-display text-5xl font-bold text-gray-900">${formatPrice(plan.price)}</span>
+              <span class="text-gray-500">${plan.period}</span>
+            </div>
+            ${plan.savings ? `<p class="mt-1 text-sm font-semibold text-green-600">Ahorras S/ ${plan.savings} al año</p>` : ''}
+          </div>
+
+          <div class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 bg-white rounded-full text-xs font-medium text-gray-700 border border-gray-200">
+            ${getPerkIcon(plan.perkIcon)}
+            <span>${plan.perkText}</span>
+          </div>
+        </div>
+
+        <ul class="space-y-3 mb-8">
+          ${plan.features.map((feature) => `
+            <li class="flex items-start gap-3">
+              ${getFeatureIcon(feature.icon)}
+              <span class="text-sm ${feature.highlight ? 'text-gray-900 font-medium' : 'text-gray-600'}">${feature.text}</span>
+            </li>
+          `).join('')}
+        </ul>
+
+        <a
+          href="https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`¡Hola! 👋 Me interesa suscribirme al plan *${plan.name}* (${formatPrice(plan.price)}${plan.period}). ¿Podrían darme más información?`)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full py-4 rounded-xl font-semibold text-center transition-all inline-block ${plan.popular
+            ? 'bg-primary-500 hover:bg-primary-600 text-white hover:shadow-lg hover:shadow-primary-500/30'
+            : 'bg-white hover:bg-primary-50 text-gray-800 border-2 border-gray-200 hover:border-primary-300'}"
+        >
+          ${plan.cta}
+        </a>
+      </div>
+    `).join('');
+  }
+
+  renderPlans();
+
+  const toggle = document.getElementById('billing-toggle');
+  const toggleCircle = document.getElementById('toggle-circle');
+  const labelMonthly = document.getElementById('label-monthly');
+  const labelAnnual = document.getElementById('label-annual');
+
+  toggle.addEventListener('click', () => {
+    isAnnual = !isAnnual;
+    toggle.setAttribute('aria-checked', isAnnual.toString());
+    
+    if (isAnnual) {
+      toggle.classList.add('bg-primary-500');
+      toggle.classList.remove('bg-gray-300');
+      toggleCircle.style.transform = 'translateX(28px)';
+      labelMonthly.classList.remove('font-semibold', 'text-gray-900');
+      labelMonthly.classList.add('font-medium', 'text-gray-500');
+      labelAnnual.classList.remove('font-medium', 'text-gray-500');
+      labelAnnual.classList.add('font-semibold', 'text-gray-900');
+    } else {
+      toggle.classList.remove('bg-primary-500');
+      toggle.classList.add('bg-gray-300');
+      toggleCircle.style.transform = 'translateX(0)';
+      labelMonthly.classList.remove('font-medium', 'text-gray-500');
+      labelMonthly.classList.add('font-semibold', 'text-gray-900');
+      labelAnnual.classList.remove('font-semibold', 'text-gray-900');
+      labelAnnual.classList.add('font-medium', 'text-gray-500');
+    }
+
+    const grid = document.getElementById('plans-grid');
+    grid.style.opacity = '0';
+    grid.style.transform = 'translateY(10px)';
+    
+    setTimeout(() => {
+      renderPlans();
+      grid.style.transition = 'opacity 0.3s, transform 0.3s';
+      grid.style.opacity = '1';
+      grid.style.transform = 'translateY(0)';
+    }, 150);
+  });
+</script>
