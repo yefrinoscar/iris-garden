@@ -7,5 +7,5 @@ export const config = {
   },
   
   // Nombre del negocio
-  businessName: 'El Jardín de Iris',
+  businessName: 'Iris Garden',
 };

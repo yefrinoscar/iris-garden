@@ -15,12 +15,12 @@ export async function POST({ request }) {
 
     // Enviar email de confirmación al usuario
     await resend.emails.send({
-      from: 'El Jardín de Iris <newsletter@' + (import.meta.env.RESEND_DOMAIN || 'resend.dev') + '>',
+      from: 'Iris Garden <newsletter@' + (import.meta.env.RESEND_DOMAIN || 'resend.dev') + '>',
       to: [email],
-      subject: '¡Bienvenido a El Jardín de Iris! 🌸',
+      subject: '¡Bienvenido a Iris Garden! 🌸',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h1 style="color: #ec4899;">¡Bienvenido a El Jardín de Iris! 🌸</h1>
+          <h1 style="color: #ec4899;">¡Bienvenido a Iris Garden! 🌸</h1>
           <p>Gracias por suscribirte a nuestro boletín. Recibirás:</p>
           <ul>
             <li>Consejos sobre el cuidado de flores</li>
